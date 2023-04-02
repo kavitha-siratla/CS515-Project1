@@ -11,7 +11,7 @@ class player:
     def go(self, direction, exits):
         if direction in exits:
             print("You go "+direction+".\n")
-            self.player_room=self.player_room+1
+            self.player_room=rooms[self.player_room]['exits'][direction]
             return False
         else:
             print("There's no way to go "+direction+".")
