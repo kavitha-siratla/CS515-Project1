@@ -66,21 +66,23 @@ def main():
     while p.player_room<len(rooms):
         print("> "+rooms[p.player_room]['name']+"\n")
         print(rooms[p.player_room]['desc']+"\n")
+        if(len(list(rooms[p.player_room].keys()))>=4):
+            items = rooms[p.player_room]['items']
+            if(len(items)>=1):
+                print('Items:', end = " ")
+                if(len(items)>=2):
+                    for x in range(0,len(items)-1):
+                        print(items[x], end=', ')
+                print(items[-1], end="")
+                print("\n")
+        else:
+            rooms[p.player_room]['items']=[]
+            items = rooms[p.player_room]['items']
         print('Exits: ', end = "")
         exits = list(rooms[p.player_room]['exits'].keys())
         for x in range(0,len(exits)-1):
             print(exits[x], end=' ')
         print(exits[-1]+"\n")
-        if(len(list(rooms[p.player_room].keys()))>=4):
-            items = rooms[p.player_room]['items']
-            if(len(items)>=1):
-                print('Items:', end = " ")
-                for x in range(0,len(items)-1):
-                    print(items[x], end=' ')
-                print(items[-1])
-        else:
-            rooms[p.player_room]['items']=[]
-            items = rooms[p.player_room]['items']
         to_repeat = True
         while to_repeat:
             action = input("What would you like to do? ")
