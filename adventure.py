@@ -74,8 +74,7 @@ def main():
                 if(len(items)>=2):
                     for x in range(0,len(items)-1):
                         print(items[x], end=', ')
-                print(items[-1], end="")
-                print("\n")
+                print(items[-1]+"\n")
         else:
             rooms[p.player_room]['items']=[]
             items = rooms[p.player_room]['items']
