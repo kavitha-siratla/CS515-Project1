@@ -20,8 +20,9 @@ class player:
     def inventory(self):
         if len(self.player_items)>=1:
             print("Inventory:")
+            print("  ",end="")
             for i in range(len(self.player_items)-1):
-                print(self.player_items[i], end=" ")
+                print(" "+self.player_items[i], end=" ")
             if len(self.player_items)>=1:
                 print(self.player_items[-1])
             return False
