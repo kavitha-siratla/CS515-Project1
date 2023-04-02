@@ -12,7 +12,7 @@ ksiratla@stevens.edu
 ## How to run the program
 Step 1: Install python3
 Step 2: Clone the git repository or download the map file, adventure.py file to a folder
-Step 3: Navigate to the folder and run the command python3 adventure.py [map filename]
+Step 3: Navigate to the folder and run the command "python3 adventure.py [map filename]"
 
 
 ## About the program
