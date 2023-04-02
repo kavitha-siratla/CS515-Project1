@@ -93,6 +93,8 @@ def main():
                 to_repeat = True
                 continue
             action = action.lower()
+            action = action.strip()
+
             action=re.split("\s+", action)
             if action[0] == 'quit':
                 p.quit()
