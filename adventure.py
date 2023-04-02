@@ -1,5 +1,6 @@
 import sys
 import json
+import re
 
 
 
@@ -48,9 +49,9 @@ class player:
         return True
     def win(self):
         if rooms[self.player_room]==rooms[len(rooms)-1]:
-            print("You win")
+            print("You win!")
         else:
-            print("You Lose")
+            print("You Lose!")
 
         
 
@@ -92,7 +93,7 @@ def main():
                 to_repeat = True
                 continue
             action = action.lower()
-            action = action.split(" ")
+            action=re.split("\s+", action)
             if action[0] == 'quit':
                 p.quit()
                 print('Goodbye!')
