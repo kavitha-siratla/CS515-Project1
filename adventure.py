@@ -44,7 +44,7 @@ class player:
         else:
             print("You don't have "+item+" to drop.")
             return True
-    def quit():
+    def quit(self):
         return True
     def win(self):
         if rooms[self.player_room]==rooms[len(rooms)-1]:
@@ -85,7 +85,12 @@ def main():
         print(exits[-1]+"\n")
         to_repeat = True
         while to_repeat:
-            action = input("What would you like to do? ")
+            try:
+                action=input("What would you like to do? ")
+            except EOFError as e:
+                print("\nUse 'quit' to exit.")
+                to_repeat = True
+                continue
             action = action.lower()
             action = action.split(" ")
             if action[0] == 'quit':
