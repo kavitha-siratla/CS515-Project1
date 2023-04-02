@@ -6,7 +6,7 @@
 ,
  {"name": "A blue room", 
   "desc": "This room is simple, too, but with blue walls.",
-  "exits": { "east": 2, "south": 0 }
+  "exits": { "east": 2, "south": 4 }
  }
 ,
  {"name": "A green room", 
@@ -18,6 +18,12 @@
  {"name": "A red room",
   "desc": "This room is fancy. It's red!",
   "exits": { "north": 2, "west": 0 },
-  "items": ["rose", "pen"]
+  "items": ["rose"]
+ }
+ ,
+ {"name": "A Black room", 
+  "desc": "You are in a simple room, with bright Black walls.",
+  "exits": { "west": 1, "south": 3 },
+  "items": ["black hat"]
  }
 ]

@@ -111,6 +111,9 @@ def main():
                 to_repeat=p.inventory()
             if action[0] == 'get':
                 if len(action)>=2:
+                    if len(action)>=3:
+                        for i in range(2,len(action)):
+                            action[1] = action[1]+" "+action[i]
                     to_repeat=p.get(action[1],items)
                 else:
                     print("Sorry, you need to 'get' something.")
