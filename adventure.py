@@ -20,12 +20,9 @@ class player:
     def inventory(self):
         if len(self.player_items)>=1:
             print("Inventory:")
-            print("  ",end="")
-            for i in range(len(self.player_items)-1):
-                print(" "+self.player_items[i], end=" ")
-            if len(self.player_items)>=1:
-                print(self.player_items[-1])
-            return False
+            for i in self.player_items:
+                print("  "+i)
+            return True
         else:
             print("You're not carring anything.")
             return True
@@ -34,6 +31,7 @@ class player:
             print("You pick up the "+item+".")
             self.player_items.append(item)
             rooms[self.player_room]['items'].remove(item)
+            return True
         else:
             print("There's no "+item+" anywhere.")
             return True
