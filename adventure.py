@@ -66,13 +66,13 @@ def main():
     global rooms
     p = player()
     while p.player_room<len(rooms):
-        print(rooms[p.player_room]['name'])
-        print(rooms[p.player_room]['desc'])
+        print("> "+rooms[p.player_room]['name']+"\n")
+        print(rooms[p.player_room]['desc']+"\n")
         print('Exits:', end = " ")
         exits = list(rooms[p.player_room]['exits'].keys())
         for x in range(0,len(exits)-1):
             print(exits[x], end=' ')
-        print(exits[-1])
+        print(exits[-1]+"\n")
         if(len(list(rooms[p.player_room].keys()))>=4):
             items = rooms[p.player_room]['items']
             if(len(items)>=1):
