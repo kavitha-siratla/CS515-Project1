@@ -9,7 +9,7 @@ class player:
 
     def go(self, direction, exits):
         if direction in exits:
-            print("you go "+direction+".\n")
+            print("You go "+direction+".\n")
             self.player_room=self.player_room+1
             return False
         else:
