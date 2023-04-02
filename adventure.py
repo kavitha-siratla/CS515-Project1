@@ -67,7 +67,7 @@ def main():
     while p.player_room<len(rooms):
         print("> "+rooms[p.player_room]['name']+"\n")
         print(rooms[p.player_room]['desc']+"\n")
-        print('Exits:', end = " ")
+        print('Exits: ', end = "")
         exits = list(rooms[p.player_room]['exits'].keys())
         for x in range(0,len(exits)-1):
             print(exits[x], end=' ')
@@ -85,6 +85,7 @@ def main():
         to_repeat = True
         while to_repeat:
             action = input("What would you like to do? ")
+            action = action.lower()
             action = action.split(" ")
             if action[0] == 'quit':
                 p.quit()
