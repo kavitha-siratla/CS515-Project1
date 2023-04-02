@@ -84,7 +84,7 @@ def main():
             items = rooms[p.player_room]['items']
         to_repeat = True
         while to_repeat:
-            action = input("What would you like to do?")
+            action = input("What would you like to do? ")
             action = action.split(" ")
             if action[0] == 'quit':
                 p.quit()
