@@ -131,5 +131,8 @@ def main():
                 for x in help_methods:
                     print(x)
 
+        if(p.player_room)==len(rooms):
+            p.player_room=0
+
 if __name__ == "__main__":
     main()
