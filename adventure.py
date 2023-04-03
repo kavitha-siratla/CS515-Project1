@@ -1,7 +1,6 @@
 import sys
 import json
 import re
-import traceback
 
 
 
@@ -104,10 +103,6 @@ def main():
             except EOFError:
                 print("\nUse 'quit' to exit.")
                 continue
-            except KeyboardInterrupt:
-                traceback.print_exc()
-                sys.exit()
-
             action = action.lower()
             action = action.strip()
 
