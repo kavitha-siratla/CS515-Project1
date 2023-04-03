@@ -12,7 +12,7 @@
  {"name": "A green room", 
   "desc": "You are in a simple room, with bright green walls.",
   "exits": { "west": 1, "south": 3 },
-  "items": []
+  "items": ["pen", "paper"]
  }
 ,
  {"name": "A red room",
@@ -22,7 +22,7 @@
  }
  ,
  {"name": "A Black room", 
-  "desc": "You are in a simple room, with bright Black walls.",
+  "desc": "You are in a simple room, with Black walls. This is the winning room.",
   "exits": { "west": 1, "south": 3 },
   "items": ["black hat"]
  }

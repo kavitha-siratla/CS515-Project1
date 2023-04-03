@@ -100,9 +100,8 @@ def main():
         while to_repeat:
             try:
                 action=input("What would you like to do? ")
-            except EOFError as e:
+            except EOFError:
                 print("\nUse 'quit' to exit.")
-                to_repeat = True
                 continue
             action = action.lower()
             action = action.strip()
