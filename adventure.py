@@ -44,7 +44,7 @@ class player:
                 print("  "+i)
             return True
         else:
-            print("You're not carring anything.")
+            print("You're not carrying anything.")
             return True
     def get(self, item, items):
         if item in items:
