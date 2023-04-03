@@ -40,8 +40,8 @@ class player:
     def inventory(self):
         if len(self.player_items)>=1:
             print("Inventory:")
-            for i in self.player_items:
-                print("  "+i)
+            for i in range(len(self.player_items)-1,-1,-1):
+                print("  "+self.player_items[i])
             return True
         else:
             print("You're not carrying anything.")
