@@ -12,11 +12,30 @@ class player:
         if direction in exits:
             print("You go "+direction+".\n")
             self.player_room=rooms[self.player_room]['exits'][direction]
+            self.look()
             return False
         else:
             print("There's no way to go "+direction+".")
             return True
     def look(self):
+        print("> "+rooms[self.player_room]['name']+"\n")
+        print(rooms[self.player_room]['desc']+"\n")
+        if(len(list(rooms[self.player_room].keys()))>=4):
+            items = rooms[self.player_room]['items']
+            if(len(items)>=1):
+                print('Items:', end = " ")
+                if(len(items)>=2):
+                    for x in range(0,len(items)-1):
+                        print(items[x], end=', ')
+                print(items[-1]+"\n")
+        else:
+            rooms[self.player_room]['items']=[]
+            items = rooms[self.player_room]['items']
+        print('Exits: ', end = "")
+        exits = list(rooms[self.player_room]['exits'].keys())
+        for x in range(0,len(exits)-1):
+            print(exits[x], end=' ')
+        print(exits[-1]+"\n")
         return False
     def inventory(self):
         if len(self.player_items)>=1:
@@ -52,6 +71,17 @@ class player:
             print("You win!")
         else:
             print("You Lose!")
+    def help(self):
+        methods = dir(player)
+        help_methods=[]
+        for x in methods:
+            if not x.startswith('__'):
+                help_methods.append(x)
+        help_methods.remove('player_items')
+        help_methods.remove('player_room')
+        print("You can run the following commands:")
+        for x in help_methods:
+            print("  "+x)
 
         
 
@@ -64,26 +94,8 @@ except ValueError as err:
 def main():
     global rooms
     p = player()
+    p.look()
     while p.player_room<len(rooms):
-    
-        print("> "+rooms[p.player_room]['name']+"\n")
-        print(rooms[p.player_room]['desc']+"\n")
-        if(len(list(rooms[p.player_room].keys()))>=4):
-            items = rooms[p.player_room]['items']
-            if(len(items)>=1):
-                print('Items:', end = " ")
-                if(len(items)>=2):
-                    for x in range(0,len(items)-1):
-                        print(items[x], end=', ')
-                print(items[-1]+"\n")
-        else:
-            rooms[p.player_room]['items']=[]
-            items = rooms[p.player_room]['items']
-        print('Exits: ', end = "")
-        exits = list(rooms[p.player_room]['exits'].keys())
-        for x in range(0,len(exits)-1):
-            print(exits[x], end=' ')
-        print(exits[-1]+"\n")
         to_repeat = True
         while to_repeat:
             try:
@@ -102,7 +114,7 @@ def main():
                 return 0
             if action[0] == 'go':
                 if len(action)>=2:
-                    to_repeat=p.go(action[1], exits)
+                    to_repeat=p.go(action[1], list(rooms[p.player_room]['exits'].keys()))
                 else:
                     print("Sorry, you need to 'go' somewhere.")
             if action[0] == 'look':
@@ -114,11 +126,14 @@ def main():
                     if len(action)>=3:
                         for i in range(2,len(action)):
                             action[1] = action[1]+" "+action[i]
-                    to_repeat=p.get(action[1],items)
+                    to_repeat=p.get(action[1],rooms[p.player_room]['items'])
                 else:
                     print("Sorry, you need to 'get' something.")
             if action[0] == 'drop':
                 if len(action)>=2:
+                    if len(action)>=3:
+                        for i in range(2,len(action)):
+                            action[1] = action[1]+" "+action[i]
                     to_repeat=p.drop(action[1])
                 else:
                     print("Sorry, you need to 'drop' something.")
@@ -126,16 +141,7 @@ def main():
                 p.win()
                 return 0
             if action[0] == 'help':
-                methods = dir(player)
-                help_methods=[]
-                for x in methods:
-                    if not x.startswith('__'):
-                        help_methods.append(x)
-                help_methods.remove('player_items')
-                help_methods.remove('player_room')
-                print("You can run the following commands:")
-                for x in help_methods:
-                    print(x)
+                p.help()
 
         if(p.player_room)==len(rooms):
             p.player_room=0
